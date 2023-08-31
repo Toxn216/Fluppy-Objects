@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FlooAndUp : MonoBehaviour
+public class FloorAndCeiling : MonoBehaviour
 {
     private GameManager gameManager;
     // Start is called before the first frame update
