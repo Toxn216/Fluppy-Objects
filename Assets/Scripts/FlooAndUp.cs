@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class FlooAndUp : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverText;
-    private SpawnManager spawnManager;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();   
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();   
     }
 
     // Update is called once per frame
@@ -22,9 +21,9 @@ public class FlooAndUp : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            gameOverText.SetActive(true);
+            gameManager.GameOverText();
             Destroy(other.gameObject);
-            spawnManager.isGameActive = false ;
+            gameManager.isGameActive = false ;
         }
     }
 }
