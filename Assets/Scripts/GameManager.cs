@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] wallPrefabs;
     [SerializeField] private Text scoreText;
-    [SerializeField] private GameObject gameOverText;
+    [SerializeField] private GameObject gameOverUi;
+    [SerializeField] private Button restartButton;
+
     private float spawnX = 17;
     private float spawnY = 0;
     private float score;
@@ -26,7 +30,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StopGame();
+        GameOver();
     }
     IEnumerator SpawnRandomWall()
     {
@@ -38,11 +42,13 @@ public class GameManager : MonoBehaviour
             Instantiate(wallPrefabs[wallIndex], spawnPos, wallPrefabs[wallIndex].transform.rotation);
         }
     }
-    private void StopGame()
+    public void GameOver()
     {
         if (isGameActive == false)//Когда игра закончена все обьекты останавливаются
         {
             Time.timeScale = 0;
+            gameOverUi.SetActive(true);
+            //restartButton.gameObject.SetActive(true);
         }
     }
     public void UpdateScore(int scoreToAdd)// подсчет счета
@@ -50,8 +56,11 @@ public class GameManager : MonoBehaviour
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
     }
-    public void GameOverText()
+    public void RestartGame()
     {
-        gameOverText.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+0);
+        Time.timeScale = 1f;
+        isGameActive = true;
     }
+    
 }

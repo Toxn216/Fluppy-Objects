@@ -35,7 +35,7 @@ public class MoveWall : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             gameManager.isGameActive = false;
-            gameManager.GameOverText();
+            gameManager.GameOver();
             Destroy(collision.gameObject);
         }
     }

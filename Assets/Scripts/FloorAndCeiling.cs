@@ -21,7 +21,7 @@ public class FloorAndCeiling : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            gameManager.GameOverText();
+            gameManager.GameOver();
             Destroy(other.gameObject);
             gameManager.isGameActive = false ;
         }
