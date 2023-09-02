@@ -4,10 +4,13 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoveWall : MonoBehaviour
+public class Monet : MonoBehaviour
 {
-    [SerializeField] private GameObject wall;
+    //[SerializeField] private GameObject monetPrefab;
+    [SerializeField] private float spawnXMonet = 19.5f;
+
     private GameManager gameManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,26 +21,20 @@ public class MoveWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TransformWall();
+        TransformMonet();      
     }
-    private void TransformWall()
+
+    private void TransformMonet()
     {
-        transform.position = wall.transform.position - Vector3.right * 1f * Time.deltaTime;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            gameManager.UpdateScore(1);
-        }
+        transform.position = transform.position - Vector3.right * 1f * Time.deltaTime;
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            gameManager.isGameActive = false;
-            gameManager.GameOver();
-            Destroy(collision.gameObject);
+            gameManager.UpdateScore(10);
+            Destroy(gameObject);
         }
     }
+
 }

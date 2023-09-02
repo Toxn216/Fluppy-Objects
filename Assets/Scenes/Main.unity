@@ -272,7 +272,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!136 &235664879
 CapsuleCollider:
@@ -634,6 +634,10 @@ PrefabInstance:
     - target: {fileID: 2167987820759800677, guid: 462c77a6c275a1e4ba53257ae613f539, type: 3}
       propertyPath: m_Name
       value: Wall1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739280281018030945, guid: 462c77a6c275a1e4ba53257ae613f539, type: 3}
+      propertyPath: m_Constraints
+      value: 124
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1591,9 +1595,11 @@ MonoBehaviour:
   - {fileID: 4407590483511045015, guid: df52f71c91c428f45a3408d1ff45b539, type: 3}
   - {fileID: 6151592353812800333, guid: 617949888afbd3d43b83300c3d776227, type: 3}
   - {fileID: 5546973172890746723, guid: 5c138d1e5278c7a4fa74557b9be3c4ff, type: 3}
+  monetPrefab: {fileID: 4685748544710441928, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
   scoreText: {fileID: 1060123095}
   gameOverUi: {fileID: 1452015642}
   restartButton: {fileID: 1072967782}
+  spawnXMonet: 19.5
   isGameActive: 1
 --- !u!4 &1238605535
 Transform:
@@ -2029,3 +2035,64 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &2180423843600860211
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967970541617286043, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685748544710441928, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
+      propertyPath: m_Name
+      value: Monet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa99ba35f64a7e44cb7fa5882d6b6913, type: 3}
