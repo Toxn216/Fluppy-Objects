@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class Monet : MonoBehaviour
 {
-    //[SerializeField] private GameObject monetPrefab;
-    [SerializeField] private float spawnXMonet = 19.5f;
-
     private GameManager gameManager;
 
 

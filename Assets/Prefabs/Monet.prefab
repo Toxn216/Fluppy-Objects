@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4926727799592430244}
   m_Layer: 0
   m_Name: Monet
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,8 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5f17589144ea04c94cf934340a0718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monetPrefab: {fileID: 4685748544710441928}
-  spawnXMonet: 19.5
 --- !u!54 &4926727799592430244
 Rigidbody:
   m_ObjectHideFlags: 0
