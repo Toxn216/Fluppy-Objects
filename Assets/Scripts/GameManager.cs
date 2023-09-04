@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float spawnXMonet = 19.5f;
     private float randomYspawn = 7;
-    private float startDelay = 2;
-    private float spawnInterval = 12;
+    private float startDelay = 1.5f;
+    private float spawnInterval = 11;
 
     private float spawnX = 17f;
     private float spawnY = 0f;
@@ -27,11 +27,6 @@ public class GameManager : MonoBehaviour
 
     public bool startTheGame = false;
     public bool isGameActive;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Time.timeScale = 0f;
-    }
 
     // Update is called once per frame
     void Update()
@@ -57,8 +52,7 @@ public class GameManager : MonoBehaviour
         {
             Vector3 spawnPos = new Vector3(spawnXMonet, Random.Range(randomYspawn, -randomYspawn), 0);
             Instantiate(monetPrefab, spawnPos, monetPrefab.transform.rotation);
-        }
-        
+        }    
     }
     public void GameOver()
     {
@@ -76,7 +70,6 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
-        Time.timeScale = 1f;
         isGameActive = true;
     }
     public void StartGame(int difficulty)
@@ -89,8 +82,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnRandomWall());
         InvokeRepeating("SpawnRandomMonet", startDelay, spawnInterval);
         menuUI.gameObject.SetActive(false);
-        //Time.timeScale = 1f;
-
     }
     public void Exit()//крч эти решоточки тоже самое что ели писать как обычно но нам решили показать что можно и так, в чем преимущество я хз но все же
     {
