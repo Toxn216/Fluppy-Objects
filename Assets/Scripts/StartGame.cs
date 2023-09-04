@@ -25,6 +25,6 @@ public class StartGame : MonoBehaviour
     void SetDifficulty()
     {
         Debug.Log(button.gameObject.name + " was clicked");// просто показывает какой уровень мы выбрали в логах
-        gameManager.StartGame();//передаем значение уровня сложности в метод старт гейм
+        gameManager.StartGame(difficulty);//передаем значение уровня сложности в метод старт гейм
     }
 }

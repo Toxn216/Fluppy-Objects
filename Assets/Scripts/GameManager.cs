@@ -24,11 +24,13 @@ public class GameManager : MonoBehaviour
     private float spawnY = 0f;
     private float score;
     private float spawnWallInterval = 6f;
+
+    public bool startTheGame = false;
     public bool isGameActive;
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     // Update is called once per frame
@@ -40,24 +42,30 @@ public class GameManager : MonoBehaviour
     {
         while (isGameActive)
         {
-            yield return new WaitForSeconds(spawnWallInterval);
-            int wallIndex = Random.Range(0, wallPrefabs.Length);
-            Vector3 spawnPos = new Vector3(spawnX, spawnY, 0);
-            Instantiate(wallPrefabs[wallIndex], spawnPos, wallPrefabs[wallIndex].transform.rotation);
+            if(startTheGame == true)
+            {
+                yield return new WaitForSeconds(spawnWallInterval);
+                int wallIndex = Random.Range(0, wallPrefabs.Length);
+                Vector3 spawnPos = new Vector3(spawnX, spawnY, 0);
+                Instantiate(wallPrefabs[wallIndex], spawnPos, wallPrefabs[wallIndex].transform.rotation);
+            }      
         }
     }
     void SpawnRandomMonet()
     {
-        Vector3 spawnPos = new Vector3(spawnXMonet, Random.Range(randomYspawn, -randomYspawn), 0);
-        Instantiate(monetPrefab, spawnPos, monetPrefab.transform.rotation);
+        if(startTheGame == true)
+        {
+            Vector3 spawnPos = new Vector3(spawnXMonet, Random.Range(randomYspawn, -randomYspawn), 0);
+            Instantiate(monetPrefab, spawnPos, monetPrefab.transform.rotation);
+        }
+        
     }
     public void GameOver()
     {
         if (isGameActive == false)//Когда игра закончена все обьекты останавливаются
         {
-            Time.timeScale = 0;
+            startTheGame = false;
             gameOverUi.SetActive(true);
-            //restartButton.gameObject.SetActive(true);
         }
     }
     public void UpdateScore(int scoreToAdd)// подсчет счета
@@ -71,15 +79,17 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         isGameActive = true;
     }
-    public void StartGame()
+    public void StartGame(int difficulty)
     {
         isGameActive = true;
+        startTheGame = true ;
         score = 0;
+        spawnWallInterval /= difficulty;
         UpdateScore(0);
         StartCoroutine(SpawnRandomWall());
         InvokeRepeating("SpawnRandomMonet", startDelay, spawnInterval);
         menuUI.gameObject.SetActive(false);
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
 
     }
     public void Exit()//крч эти решоточки тоже самое что ели писать как обычно но нам решили показать что можно и так, в чем преимущество я хз но все же

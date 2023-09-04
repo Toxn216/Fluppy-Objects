@@ -18,7 +18,10 @@ public class MoveWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TransformWall();
+        if (gameManager.startTheGame == true)
+        {
+            TransformWall();
+        }
     }
     private void TransformWall()
     {

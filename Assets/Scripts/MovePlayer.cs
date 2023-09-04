@@ -6,6 +6,7 @@ public class MovePlayer : MonoBehaviour
 {
     private Rigidbody rb;
     private Vector3 upForce =new Vector3(0, 50,0);
+    private GameObject ss;
     public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,19 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (gameManager.startTheGame == true)
         {
-            rb.AddForce(upForce);
+            rb.isKinematic = false;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                rb.AddForce(upForce);
+            }
         }
+        else
+        {
+            rb.isKinematic = true;
+        }
+
+        
     }
 }
