@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button restartButton;
     public GameObject menuUI;
 
-    [SerializeField] private float spawnXMonet = 19.5f;
+    [SerializeField] private float spawnXMonet = 20.5f;
     private float randomYspawn = 7;
     private float startDelay = 1.5f;
     private float spawnInterval = 11;

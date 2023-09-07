@@ -23,6 +23,7 @@ public class Monet : MonoBehaviour
         if(gameManager.startTheGame == true)
         {
             TransformMonet();
+            RotateMonet();
         }
 
     }
@@ -38,6 +39,10 @@ public class Monet : MonoBehaviour
             gameManager.UpdateScore(10);
             Destroy(gameObject);
         }
+    }
+    private void RotateMonet()
+    {
+        transform.Rotate(new Vector3(0, 5, 0));
     }
 
 }
